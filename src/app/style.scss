@@ -1,0 +1,108 @@
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+body {
+	background: #c9c9c9;
+}
+
+.container {
+	margin: 20px 40px;
+	padding: 20px 40px;
+	background: #fff;
+	height: 90vh;
+	h2 {
+		text-align: center;
+	}
+
+	form {
+		.form-controlls {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.btn-wrapper {
+			text-align: center;
+			margin-bottom: 160px;
+			.btn {
+				margin-right: 10px;
+			}
+		}
+	}
+
+	.response {
+		margin-top: 40px;
+		font-size: 30px;
+		span {
+			font-size: 40px;
+		}
+
+		.deposit-color {
+			color: rgb(8, 193, 8);
+		}
+		.current-rate-color {
+			color: rgb(245, 7, 7);
+		}
+		.profit-color {
+			color: blue;
+		}
+		.salary-color {
+			color: rgb(222, 222, 28);
+		}
+		.monthly-budget-color {
+			color: orange;
+		}
+		.after-deposit-color {
+			color: cadetblue;
+		}
+	}
+}
+
+// FOR Tablet
+
+@media only screen and (max-width: 992px) {
+	.container {
+		.form-controlls {
+			display: block !important;
+			margin-left: 30%;
+			& > div {
+				margin-bottom: 40px;
+			}
+		}
+
+		.response {
+			font-size: 20px;
+			span {
+				font-size: 22px;
+			}
+		}
+	}
+}
+// FOR mobile
+
+@media only screen and (max-width: 648px) {
+	.container {
+		.form-controlls {
+			display: block !important;
+			// margin-left: 30%;
+			margin-left: 0;
+			& > div {
+				margin-bottom: 40px;
+			}
+		}
+
+		.btn-wrapper {
+			margin-bottom: 60px !important;
+		}
+
+		.response {
+			font-size: 14px;
+			span {
+				font-size: 16px;
+			}
+		}
+	}
+}

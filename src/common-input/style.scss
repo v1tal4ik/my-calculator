@@ -1,0 +1,29 @@
+.common-input {
+	margin: 10px 0;
+	&__label {
+		font-size: 20px;
+		margin-right: 8px;
+	}
+	&__input {
+		width: auto;
+		outline: none;
+		font-size: 20px;
+		padding: 3px 6px;
+		border: none;
+		border-bottom: 2px solid rgb(20, 64, 168);
+		width: 70px;
+	}
+}
+
+// FOR mobile
+
+@media only screen and (max-width: 648px) {
+	.common-input {
+		&__label {
+			font-size: 12px;
+		}
+		&__input {
+			font-size: 16px;
+		}
+	}
+}
