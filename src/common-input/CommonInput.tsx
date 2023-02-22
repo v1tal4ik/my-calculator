@@ -8,10 +8,12 @@ type InputProps = {
 	name: string;
 	register: UseFormRegister<any>;
 	currencyName: 'dollar' | 'gryvna';
+	step: number | string;
+	type?: string;
 };
 
 const CommonInput = (props: InputProps) => {
-	const { label, name, register, currencyName } = props;
+	const { label, name, type, register, currencyName, step } = props;
 
 	return (
 		<div className='common-input'>
@@ -21,9 +23,9 @@ const CommonInput = (props: InputProps) => {
 			<input
 				className='common-input__input'
 				autoComplete='off'
-				type='number'
+				type={type ? type : 'tel'}
 				{...register(name)}
-				step='0.1'
+				step={step}
 			/>
 			{currencyName === 'dollar' ? '$' : '₴'}
 		</div>

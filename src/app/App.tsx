@@ -69,13 +69,26 @@ const App = () => {
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-controlls'>
 					<div>
-						<CommonInput label='Deposit' name='deposit' register={register} currencyName='dollar' />
-						<CommonInput label='Salary' name='salary' register={register} currencyName='dollar' />
+						<CommonInput
+							label='Deposit'
+							name='deposit'
+							register={register}
+							currencyName='dollar'
+							step={1}
+						/>
+						<CommonInput
+							label='Salary'
+							name='salary'
+							register={register}
+							currencyName='dollar'
+							step={1}
+						/>
 						<CommonInput
 							label='Monthly budget'
 							name='monthlyBudget'
 							register={register}
 							currencyName='gryvna'
+							step={1}
 						/>
 					</div>
 
@@ -83,14 +96,18 @@ const App = () => {
 						<CommonInput
 							label='Official dollar rate'
 							name='officialRate'
+							type='number'
 							register={register}
 							currencyName='gryvna'
+							step={'0.1'}
 						/>
 						<CommonInput
 							label='Current dollar rate'
 							name='currentRate'
+							type='number'
 							register={register}
 							currencyName='gryvna'
+							step={'0.1'}
 						/>
 					</div>
 				</div>
