@@ -4,10 +4,6 @@ input::-webkit-inner-spin-button {
 	margin: 0;
 }
 
-body {
-	background: #c9c9c9;
-}
-
 .container {
 	margin: 20px 40px;
 	padding: 20px 40px;
@@ -36,6 +32,19 @@ body {
 	.response {
 		margin-top: 40px;
 		font-size: 30px;
+		display: flex;
+		justify-content: center;
+
+		ul {
+			list-style: decimal;
+			li {
+				margin-top: 10px;
+				&:nth-child(4) {
+					margin-top: 40px;
+				}
+			}
+		}
+
 		span {
 			font-size: 40px;
 		}
@@ -81,14 +90,17 @@ body {
 		}
 	}
 }
+
 // FOR mobile
 
 @media only screen and (max-width: 648px) {
 	.container {
+		margin: 0;
+		padding: 10px 20px;
+
 		.form-controlls {
 			display: block !important;
-			// margin-left: 30%;
-			margin-left: 0;
+			margin-left: 20%;
 			& > div {
 				margin-bottom: 40px;
 			}

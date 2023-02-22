@@ -4,9 +4,9 @@ import React, { useEffect, useState } from 'react';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import CommonInput from '../common-input/CommonInput';
 
 import './style.scss';
-import CommonInput from '../common-input/CommonInput';
 
 export const formatToUsNumber = (value: number): string => {
 	if (typeof value !== 'number') {
@@ -65,7 +65,7 @@ const App = () => {
 
 	return (
 		<div className='container'>
-			<h2>My project</h2>
+			<h2>Calculate you profit!</h2>
 			<form onSubmit={handleSubmit(onSubmit)}>
 				<div className='form-controlls'>
 					<div>
@@ -112,48 +112,61 @@ const App = () => {
 			</form>
 
 			{profit && afterDeposit && (
-				<div className='response'>
-					<p>
-						Знімаю депозит{' '}
-						<span className='deposit-color'>
-							{formatToUsNumber(+depositValue)}$ (
-							{formatToUsNumber(+(depositValue * OFFICIAL_SELL_RATE).toFixed())}₴)
-						</span>{' '}
-						продаю по <span className='current-rate-color'>{currentRateValue}₴</span> ={' '}
-						<span className='deposit-color'>
-							{formatToUsNumber(+depositValue)}$ (
-							{formatToUsNumber(+(depositValue * OFFICIAL_SELL_RATE).toFixed())}₴)
-						</span>{' '}
-						+ виручка{' '}
-						<span className='profit-color'>
-							{formatToUsNumber(+profit)}₴ (
-							{formatToUsNumber(+(profit / OFFICIAL_BUY_RATE).toFixed())}$)
-						</span>
-						;
-					</p>
-					<p>
-						Отримую зп{' '}
-						<span className='salary-color'>
-							{formatToUsNumber(+salaryValue)}$ (
-							{formatToUsNumber(+(salaryValue * OFFICIAL_SELL_RATE).toFixed())}₴)
-						</span>{' '}
-						+ виручка{' '}
-						<span className='profit-color'>
-							{formatToUsNumber(+profit)}₴ (
-							{formatToUsNumber(+(profit / OFFICIAL_BUY_RATE).toFixed())}$)
-						</span>{' '}
-						- місячні витрати{' '}
-						<span className='monthly-budget-color'>
-							{formatToUsNumber(+monthlyBudgetValue)}₴ (
-							{formatToUsNumber(+(monthlyBudgetValue / OFFICIAL_BUY_RATE).toFixed())}$){' '}
-						</span>{' '}
-						={' '}
-						<span className='after-deposit-color'>
-							{formatToUsNumber(afterDeposit)}₴ (
-							{formatToUsNumber(+(afterDeposit / officialRateValue).toFixed())}$){' '}
-						</span>
-					</p>
-				</div>
+				<>
+					<div className='response'>
+						<ul>
+							<li>
+								Знімаю депозит{' '}
+								<span className='deposit-color'>
+									{formatToUsNumber(+depositValue)}$ (
+									{formatToUsNumber(+(depositValue * OFFICIAL_SELL_RATE).toFixed())}₴)
+								</span>
+								;
+							</li>
+							<li>
+								Продаю по{' '}
+								<span className='current-rate-color'>
+									{currentRateValue}₴ (
+									{formatToUsNumber(+(depositValue * currentRateValue).toFixed())}$)
+								</span>
+								;
+							</li>
+							<li>
+								Виручка{' '}
+								<span className='profit-color'>
+									{formatToUsNumber(+profit)}₴ (
+									{formatToUsNumber(+(profit / OFFICIAL_BUY_RATE).toFixed())}$)
+								</span>
+								;
+							</li>
+
+							<li>
+								Отримую зп{' '}
+								<span className='salary-color'>
+									{formatToUsNumber(+salaryValue)}$ (
+									{formatToUsNumber(+(salaryValue * OFFICIAL_SELL_RATE).toFixed())}₴)
+								</span>
+								;
+							</li>
+							<li>
+								Місячні витрати{' '}
+								<span className='monthly-budget-color'>
+									{formatToUsNumber(+monthlyBudgetValue)}₴ (
+									{formatToUsNumber(+(monthlyBudgetValue / OFFICIAL_BUY_RATE).toFixed())}$){' '}
+								</span>
+								;
+							</li>
+							<li>
+								Можливо відкласти{' '}
+								<span className='after-deposit-color'>
+									{formatToUsNumber(afterDeposit)}₴ (
+									{formatToUsNumber(+(afterDeposit / officialRateValue).toFixed())}$){' '}
+								</span>
+								;
+							</li>
+						</ul>
+					</div>
+				</>
 			)}
 		</div>
 	);
